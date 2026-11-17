@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState } from 'react';
 
 const Button = ({onClick,text}) =>{
   return(
@@ -13,10 +13,14 @@ const App = () => {
   const [good , setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [allValue , setAllValue] = useState(0)
 
   const incrementGood = () => {
     const newGood = good + 1;
     setGood(newGood);
+
+    const newAllValue = allValue + 1;
+    setAllValue(newAllValue);
   }
 
   const incrementNeutral = () => {
@@ -27,8 +31,14 @@ const App = () => {
   const incrementBad = () => {
     const newBad = bad + 1;
     setBad(newBad);
+
+    const newAllValue = allValue - 1;
+    setAllValue(newAllValue);
   }
   
+  const all = (good + neutral + bad)
+  const average = all === 0 ? 0 : allValue / all ;
+  const positive = all === 0 ? 0 : (good / all) * 100;
 
   return (
     <div>
@@ -42,7 +52,10 @@ const App = () => {
 
       good   {good} <br></br>
       neutral   {neutral} <br></br>
-      bad    {bad}
+      bad    {bad} <br></br>
+      all  {all} <br></br>
+      average {average} <br></br>
+      positive {positive} %<br></br>
 
     </div>
   )
