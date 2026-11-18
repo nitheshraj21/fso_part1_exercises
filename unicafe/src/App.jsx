@@ -9,19 +9,28 @@ const Button = ({onClick,text}) =>{
 }
 
 const Statistics = (props) => {
-  return (
-    <>
-      <h2>Statistics</h2>
-      <div>
-        good {props.good} <br></br>
-        neutral {props.neutral} <br></br>
-        bad {props.bad}<br></br>
-        all {props.all}<br></br>
-        average {props.average}<br></br>
-        positive {props.positive}
-        </div>
-    </>
-  )
+      if (props.all === 0){
+        return (
+          <>
+            <h2>Statistics</h2>
+            <div>No feedback given.</div>
+         </>
+        )
+      }
+      else{
+         return (
+          <>
+            <h2>Statistics</h2>
+            good {props.good} <br></br>
+            neutral {props.neutral} <br></br>
+            bad {props.bad}<br></br>
+            all {props.all}<br></br>
+            average {props.average}<br></br>
+            positive {props.positive} 
+         </>
+        )
+      } 
+
 }
 
 const App = () => {
